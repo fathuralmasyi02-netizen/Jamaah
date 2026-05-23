@@ -1,0 +1,6 @@
+{
+  "name": "Kamar Mandiri - jejak imani",
+  "description": "Sistem Layanan Mandiri Kamar Hotel Jamaah jejak imani di Arab Saudi (Mekkah & Madinah) untuk pemesanan snack dan permintaan kebersihan kamar secara real-time.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

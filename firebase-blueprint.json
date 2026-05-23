@@ -1,0 +1,100 @@
+{
+  "entities": {
+    "snack_order": {
+      "title": "Snack Order",
+      "description": "Pilgrim requests for snack service in their hotel room",
+      "type": "object",
+      "properties": {
+        "hotel": {
+          "type": "string",
+          "description": "Name of the hotel in Makkah/Madinah"
+        },
+        "roomNumber": {
+          "type": "string",
+          "description": "Room number of the pilgrim"
+        },
+        "items": {
+          "type": "array",
+          "description": "List of selected snack items"
+        },
+        "quantity": {
+          "type": "integer",
+          "description": "Total quantity of packages requested"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["Pending", "Diproses", "Selesai"],
+          "description": "Current status of the order"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when order was placed"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when status was updated"
+        },
+        "guestId": {
+          "type": "string",
+          "description": "Anonymized client machine footprint for local tracking"
+        }
+      },
+      "required": ["hotel", "roomNumber", "items", "quantity", "status", "createdAt"]
+    },
+    "housekeeping_request": {
+      "title": "Housekeeping Request",
+      "description": "Pilgrim requests for room cleaning and inventory support",
+      "type": "object",
+      "properties": {
+        "hotel": {
+          "type": "string",
+          "description": "Name of the hotel in Makkah/Madinah"
+        },
+        "roomNumber": {
+          "type": "string",
+          "description": "Room number of the pilgrim"
+        },
+        "services": {
+          "type": "array",
+          "description": "Selected laundry/cleaning services (seprei, sampah, handuk, dll)"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional user comments"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["Pending", "Diproses", "Selesai"],
+          "description": "Current status of the request"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when request was made"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when status was updated"
+        },
+        "guestId": {
+          "type": "string",
+          "description": "Anonymized client machine footprint for local tracking"
+        }
+      },
+      "required": ["hotel", "roomNumber", "services", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/snack_orders/{orderId}": {
+      "schema": "snack_order",
+      "description": "Collection of snack orders requested by pilgrims"
+    },
+    "/housekeeping_requests/{requestId}": {
+      "schema": "housekeeping_request",
+      "description": "Collection of cleaning/housekeeping requests"
+    }
+  }
+}
